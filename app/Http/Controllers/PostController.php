@@ -38,15 +38,19 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'price' => 'required|integer',
-            'quantity' => 'required|integer'
+            'title' => 'required',
+            'slug' => 'required',
+            'short_text' => 'required',
+            'long_text' => 'required',
+            'image_url' => 'required',
         ]);
 
         $post = new Post();
-        $post->name = $request->name;
-        $post->price = $request->price;
-        $post->quantity = $request->quantity;
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->short_text = $request->short_text;
+        $post->long_text = $request->long_text;
+        $post->image_url = $request->image_url;
 
         if ($this->user->posts()->save($post))
             return response()->json([
