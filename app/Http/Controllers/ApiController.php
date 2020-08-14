@@ -18,6 +18,8 @@ class ApiController extends Controller
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->phone_number = $request->phone_number;
+        $user->user_type = $request->user_type;
         $user->password = bcrypt($request->password);
         $user->save();
 
