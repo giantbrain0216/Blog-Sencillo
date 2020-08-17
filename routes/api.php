@@ -26,11 +26,11 @@ Route::group(['middleware' => 'jwt.auth'], function () {
 
     Route::get('user', 'ApiController@getAuthUser');
 
-    Route::get('users', 'ApiController@index');
-    Route::get('users/{id}', 'ApiController@show');
-    Route::post('users', 'ApiController@store');
-    Route::put('users/{id}', 'ApiController@update');
-    Route::delete('users/{id}', 'ApiController@destroy');
+    Route::get('users', 'UserController@index');
+    Route::get('users/{id}', 'UserController@show');
+    Route::post('users', 'UserController@store');
+    Route::put('users/{id}', 'UserController@update');
+    Route::delete('users/{id}', 'UserController@destroy');
 
     Route::get('posts', 'PostController@index');
     Route::get('posts/{id}', 'PostController@show');
